@@ -11,19 +11,19 @@ import {
 import HospitalsMapPage from "./pages/map/hospitals-map";
 import CreateHospitalPage from "./pages/map/hospitals-create";
 
-import Dashboard_D from "./pages/dashboard-D";
+import Dashboard_D from "./pages/dashboard-d"; // ✅ خليت الحروف small
 import Navbar from "./components/Navbar";
 import MegaFooter from "./components/MegaFooter";
 import Home from "./components/home";
-import Signup from "./Authencation/Signup";
-import LoginForm from "./Authencation/login";
+import Signup from "./authencation/signup"; // ✅ خليت الحروف small
+import LoginForm from "./authencation/login"; // ✅ خليت الحروف small
 import Sidebar from "./pages/sidebar";
-import Dashboard_P from "./pages/dashboard-p"; // ✅ هنا بقى كله small
+import Dashboard_P from "./pages/dashboard-p"; // ✅ كله small
 
-import Notifications from "./components/link-siade-bar/Notifications";
-import SettingsPage from "./components/link-siade-bar/settings";
-import AIPage from "./components/AI/AIPage";
-import VerifyOtp from "./Authencation/verfiyotp";
+import Notifications from "./components/link-siade-bar/notifications"; // ✅ كله small
+import SettingsPage from "./components/link-siade-bar/settings"; // ✅ كله small
+import AIPage from "./components/ai/aipage"; // ✅ كله small
+import VerifyOtp from "./authencation/verfiyotp"; // ✅ كله small
 
 const Layout = () => (
   <>
@@ -83,13 +83,12 @@ const router = createBrowserRouter(
 
       <Route path="/dashboard" element={<SidebarLayout />}>
         <Route index element={<Dashboard_P />} />
-
         <Route path="notifications" element={<Notifications />} />
         <Route path="settings" element={<SettingsPage />} />
-        <Route path="AI" element={<AIPage />} />
+        <Route path="ai" element={<AIPage />} />
       </Route>
 
-      <Route path="/dashboard-D" element={<Dashboard_D />} />
+      <Route path="/dashboard-d" element={<Dashboard_D />} />
 
       <Route path="/hospitals" element={<HospitalsMapPage />} />
       <Route path="/hospitals/create" element={<CreateHospitalPage />} />
