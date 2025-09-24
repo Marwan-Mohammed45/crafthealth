@@ -18,7 +18,6 @@ import Home from "./components/home";
 import Signup from "./authencation/signup"; // ✅ خليت الحروف small
 import LoginForm from "./authencation/login"; // ✅ خليت الحروف small
 import Sidebar from "./pages/sidebar";
-import Dashboard_P from "./pages/dashboard-p"; // ✅ كله small
 
 import Notifications from "./components/link-siade-bar/notifications"; // ✅ كله small
 import SettingsPage from "./components/link-siade-bar/settings"; // ✅ كله small
@@ -66,7 +65,6 @@ const SidebarLayout = () => {
         />
       )}
 
-      {/* المحتوى جنب السايدبار */}
       <main className="flex-1 min-w-0">
         <Outlet />
       </main>
