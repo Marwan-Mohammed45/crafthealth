@@ -11,8 +11,7 @@ import {
 // ===== Pages =====
 import HospitalsMapPage from "./pages/map/hospitals-map";
 import CreateHospitalPage from "./pages/map/hospitals-create";
-import Dashboard_D from "./pages/dashboard-d"; // ✅ متأكد ان الملف small
-import Dashboard_P from "./pages/dashboard-p"; // ✅ اضفته هنا
+import Dashboard_P from "./pages/dashboard-p"; // ✅ صفحة الداشبورد الرئيسية
 import Sidebar from "./pages/sidebar";
 
 // ===== Components =====
@@ -94,16 +93,12 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
       </Route>
 
-      {/* Dashboard + Sidebar */}
       <Route path="/dashboard" element={<SidebarLayout />}>
         <Route index element={<Dashboard_P />} />
         <Route path="notifications" element={<Notifications />} />
         <Route path="settings" element={<SettingsPage />} />
         <Route path="ai" element={<AIPage />} />
       </Route>
-
-      {/* Dashboard_D */}
-      <Route path="/dashboard-d" element={<Dashboard_D />} />
 
       {/* المستشفيات */}
       <Route path="/hospitals" element={<HospitalsMapPage />} />
