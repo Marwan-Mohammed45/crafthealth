@@ -1,0 +1,37 @@
+import sideImg from "../assets/person3.png"; // بدّلها للصورة اللي تحبها
+
+export default function TitlesWithSideImageReversed() {
+  const titles = ["Chat with AI", "Instantly"]; // عدّل النصوص
+  return (
+    <section className="bg-white">
+      <div className="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+        {/* الصورة على الشمال (نصف العرض على الديسكتوب) */}
+        <div className="flex justify-center md:justify-start">
+          <img
+            src={sideImg}
+            alt="Side"
+            className="w-full max-w-[520px] md:max-w-[560px] lg:max-w-[620px] h-auto select-none"
+            draggable={false}
+          />
+        </div>
+
+        {/* النصوص على اليمين */}
+        <div className="space-y-5 md:pl-6">
+          {titles.map((t, i) => (
+            <h2
+              key={i}
+              className="text-[2rem] md:text-[2.8rem] font-extrabold text-[#14591D] leading-tight flex items-end gap-3"
+            >
+              <span className="block">{t}</span>
+              <span className="inline-block w-3.5 h-3.5 rounded-md bg-[#7EDF5E] mb-2"></span>
+            </h2>
+          ))}
+
+          <p className="pt-2 text-[#2f9e44]/80 text-lg md:text-xl max-w-xl md:ml-auto ">
+            Answers you can trust 24/7.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
