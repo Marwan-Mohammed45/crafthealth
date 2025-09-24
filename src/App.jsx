@@ -8,27 +8,32 @@ import {
   useLocation,
 } from "react-router-dom";
 
+// ===== Pages =====
 import HospitalsMapPage from "./pages/map/hospitals-map";
 import CreateHospitalPage from "./pages/map/hospitals-create";
+import Dashboard_D from "./pages/dashboard-d"; // ✅ متأكد ان الملف small
+import Dashboard_P from "./pages/dashboard-p"; // ✅ اضفته هنا
+import Sidebar from "./pages/sidebar";
 
-import Dashboard_D from "./pages/dashboard-d"; // ✅ خليت الحروف small
+// ===== Components =====
 import Navbar from "./components/Navbar";
 import MegaFooter from "./components/MegaFooter";
 import Home from "./components/home";
-import Signup from "./authencation/signup"; // ✅ خليت الحروف small
-import LoginForm from "./authencation/login"; // ✅ خليت الحروف small
-import Sidebar from "./pages/sidebar";
 
-import Notifications from "./components/link-siade-bar/notifications"; // ✅ كله small
-import SettingsPage from "./components/link-siade-bar/settings"; // ✅ كله small
-import AIPage from "./components/ai/aipage"; // ✅ كله small
-import VerifyOtp from "./authencation/verfiyotp"; // ✅ كله small
+// ===== Auth =====
+import Signup from "./authencation/signup";
+import LoginForm from "./authencation/login";
+import VerifyOtp from "./authencation/verfiyotp";
 
+// ===== Sidebar Links =====
+import Notifications from "./components/link-siade-bar/notifications";
+import SettingsPage from "./components/link-siade-bar/settings";
+import AIPage from "./components/ai/aipage";
+
+// ===== Layout عام (Navbar + Footer) =====
 const Layout = () => (
   <>
-    <div>
-      <Navbar />
-    </div>
+    <Navbar />
     <Outlet />
     <MegaFooter />
   </>
@@ -45,6 +50,7 @@ const SidebarLayout = () => {
 
   return (
     <div className="min-h-screen flex">
+      {/* زرار فتح/إغلاق السايدبار */}
       <button
         type="button"
         onClick={() => setSidebarOpen((v) => !v)}
@@ -53,11 +59,17 @@ const SidebarLayout = () => {
         aria-expanded={sidebarOpen}
         aria-label={sidebarOpen ? "إغلاق القائمة" : "فتح القائمة"}
       >
-        <i className={`bi ${sidebarOpen ? "bi-chevron-left" : "bi-chevron-right"} text-xl`} />
+        <i
+          className={`bi ${
+            sidebarOpen ? "bi-chevron-left" : "bi-chevron-right"
+          } text-xl`}
+        />
       </button>
 
+      {/* Sidebar */}
       <Sidebar isOpen={sidebarOpen} />
 
+      {/* Overlay للشاشات الصغيرة */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-30 bg-black/30 md:hidden"
@@ -65,6 +77,7 @@ const SidebarLayout = () => {
         />
       )}
 
+      {/* المحتوى الرئيسي */}
       <main className="flex-1 min-w-0">
         <Outlet />
       </main>
@@ -72,13 +85,16 @@ const SidebarLayout = () => {
   );
 };
 
+// ===== Router =====
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
+      {/* Layout عام */}
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
       </Route>
 
+      {/* Dashboard + Sidebar */}
       <Route path="/dashboard" element={<SidebarLayout />}>
         <Route index element={<Dashboard_P />} />
         <Route path="notifications" element={<Notifications />} />
@@ -86,11 +102,14 @@ const router = createBrowserRouter(
         <Route path="ai" element={<AIPage />} />
       </Route>
 
+      {/* Dashboard_D */}
       <Route path="/dashboard-d" element={<Dashboard_D />} />
 
+      {/* المستشفيات */}
       <Route path="/hospitals" element={<HospitalsMapPage />} />
       <Route path="/hospitals/create" element={<CreateHospitalPage />} />
 
+      {/* Auth */}
       <Route path="signup" element={<Signup />} />
       <Route path="login" element={<LoginForm />} />
       <Route path="/verify-otp" element={<VerifyOtp />} />
