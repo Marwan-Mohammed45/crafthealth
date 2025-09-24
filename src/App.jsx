@@ -18,12 +18,10 @@ import Home from "./components/home";
 import Signup from "./Authencation/Signup";
 import LoginForm from "./Authencation/login";
 import Sidebar from "./pages/sidebar";
-import Dashboard_P from "./pages/dashboard-p";
+import Dashboard_P from "./pages/dashboard-p"; // ✅ هنا بقى كله small
 
 import Notifications from "./components/link-siade-bar/Notifications";
-
 import SettingsPage from "./components/link-siade-bar/settings";
-
 import AIPage from "./components/AI/AIPage";
 import VerifyOtp from "./Authencation/verfiyotp";
 
@@ -90,13 +88,11 @@ const router = createBrowserRouter(
         <Route path="settings" element={<SettingsPage />} />
         <Route path="AI" element={<AIPage />} />
       </Route>
-      
+
       <Route path="/dashboard-D" element={<Dashboard_D />} />
 
-
-       
-       <Route path="/hospitals" element={<HospitalsMapPage />} />
-       <Route path="/hospitals/create" element={<CreateHospitalPage />} />
+      <Route path="/hospitals" element={<HospitalsMapPage />} />
+      <Route path="/hospitals/create" element={<CreateHospitalPage />} />
 
       <Route path="signup" element={<Signup />} />
       <Route path="login" element={<LoginForm />} />

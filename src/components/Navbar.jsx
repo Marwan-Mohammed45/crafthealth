@@ -25,7 +25,6 @@ export default function PremiumNavbar() {
   const mobileBtnRef = useRef(null);
   const mobileDdRef = useRef(null);
 
-  // إعداد flag للتبديل بين الخيارين A و B
   const [useCombinedNavItems, setUseCombinedNavItems] = useState(true); // true = الخيار B, false = الخيار A
 
   const { scrollY } = useScroll();
@@ -40,7 +39,6 @@ export default function PremiumNavbar() {
     { label: "Contact", href: "/contact" }
   ];
 
-  // الحاجات الأساسية بعد تسجيل الدخول (Home فقط)
   const loggedInBaseNavItems = [
     { label: "Home", href: "/" }
   ];
@@ -69,7 +67,6 @@ export default function PremiumNavbar() {
     { label: "Backup & Restore", href: "/admin/backup" }
   ];
 
-  // Check if user is logged in with token expiry check
   useEffect(() => {
     const checkAuthStatus = () => {
       const token = localStorage.getItem("authToken");
@@ -78,7 +75,6 @@ export default function PremiumNavbar() {
       const tokenExpiry = localStorage.getItem("tokenExpiry");
 
       if (token && storedUser) {
-        // اذا التوكن منتهي اعمل logout
         if (tokenExpiry && Date.now() > Number(tokenExpiry)) {
           handleLogout();
           return;
